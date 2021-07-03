@@ -12,7 +12,7 @@ jobs:
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
     - name: Merge
-      uses: "pascalgn/automerge-action@v0.13.0"
+      uses: "pascalgn/automerge-action@v0.14.2"
       if: github.actor == 'yuimatcha' || github.actor == 'imgbot[bot]'
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
