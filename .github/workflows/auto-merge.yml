@@ -1,0 +1,19 @@
+name: auto-merge
+
+on: pull_request
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Auto Approve
+      uses: hmarr/auto-approve-action@v2.0.0
+      if: github.actor == 'imgbot[bot]','yuimatcha'
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Merge
+      uses: "pascalgn/automerge-action@v0.13.0"
+      if: github.actor == 'imgbot[bot]','yuimatcha'
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        MERGE_LABELS: ""
